@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aprendiendo VueJS</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div id="app">
     <h1>{{title}}</h1>
-    <ul>
+    <p>{{name}}</p>
+    <img v-bind:src="img" v-bind:alt="name">
+
+    <!-- <ul>
       <li>{{ 1 + 1 + 2}}</li>
       <li>{{true || false}}</li>
       <li>{{true ? true : false}}</li>
       <li>{{"Hola mundo".toUpperCase()}}</li>
-    </ul>
+    </ul> -->
   </div>
 
   <script src="vue.js"></script>

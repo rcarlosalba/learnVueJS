@@ -3,12 +3,24 @@
 // h1.innerText = ("Hola Vue")
 
 
+// new Vue({
+//   el: "#app",
+
+//   data(){
+//     return{
+//       title: "Hola de nuevo Vue!"
+//     }
+//   }
+// })
+
 new Vue({
   el: "#app",
 
   data(){
     return{
-      title: "Hola de nuevo Vue!"
+      title: "Bitcoin",
+      name: "Bitcoin",
+      img: ("https://cryptologos.cc/logos/bitcoin-btc-logo.png")
     }
   }
 })
