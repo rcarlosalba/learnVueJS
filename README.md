@@ -40,8 +40,34 @@ o con objetos
   
   Se pueden combinar clases predeterminadas en CSS con clases dinámicas como las anteriores.
 
+## Estilos en tiempo real
+v-bind también se puede usar con style
+desde el HTML 
+<div id="app" v-bind:style="{background: '#' + color}">
+y desde Vue
+this.color = this.color.split("").reverse("").join("")
+siempre que este dentro del objeto definido el color
 
 
+## Datos computados y watcher
+Usando templates literals y computed desde Vue podemos actualizar cadenas de contenido de forma dinámica. Se calculan en tiempo real en base a otras propiedades. 
+en Vuje
+  computed:{
+    title(){
+      return `${this.name} - ${this.symbol}`
+    }
+  },
+los watcher son watcher osea observadores que ejecutan cuando observan. deben tener un nombre de una propiedad definida en data 
+en data: 
+      showPrices: false,
+en el watch recibe dos valores como parametro, el valor nuevo y el valor antiguo
+  watch:{
+    showPrices(newValue, oldValue){
+      console.log(newValue, oldValue)
+    }
+  },
+
+  
 
 
 
