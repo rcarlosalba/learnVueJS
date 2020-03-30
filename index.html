@@ -8,9 +8,11 @@
 </head>
 <body>
   <div id="app">
-    <h1>{{title}}</h1>
+    <h1 v-bind:class="changePercent > 0 ? 'green':'red'">{{title}}</h1>
     <p>{{name}}</p>
-    <img v-bind:src="img" v-bind:alt="name">
+    <img v-on:mouseout="toggleShowPrices" v-on:mouseover="toggleShowPrices" v-bind:src="img" v-bind:alt="name">
+    <!--     <img v-on:mouseover="toggleShowPrices" v-bind:src="img" v-bind:alt="name">
+ -->
 
     <!-- <ul>
       <li>{{ 1 + 1 + 2}}</li>
@@ -18,6 +20,35 @@
       <li>{{true ? true : false}}</li>
       <li>{{"Hola mundo".toUpperCase()}}</li>
     </ul> -->
+    <h2>
+      {{name}}
+      <span v-if="changePercent > 0"> 🤙 </span>
+      <span v-else-if="changePercent < 0"> 🔨  </span>
+      <span v-else> 🤾 </span>
+
+      <!-- v-show -->
+      <!-- <span v-show="changePercent > 0"> 🤙 </span>
+      <span v-show="changePercent < 0"> 🔨  </span>
+      <span v-show="changePercent == 0"> 🤾 </span> -->
+    </h2>
+    <h2>{{titlePrice}}</h2>
+    <!-- <ul>
+      <li v-for="(p, i) in prices" v-bind:key="p">{{i}} - {{p}}</li>
+    </ul> -->
+    <button v-on:click="toggleShowPrices">{{ showPrices ? "🐒 " : "🐵 "}}</button>
+    <ul v-show="showPrices">
+      <li 
+      v-bind:class="{ orange: p.value == price, red: p.value < price, green: p.value > price}"
+      v-for="(p,i) in pricesWithDays" 
+      v-bind:key="p.day">
+        {{i}}-{{p.day}}-{{p.value}}
+      </li>
+    </ul>
+
+
+
+
+
   </div>
 
   <script src="vue.js"></script>
