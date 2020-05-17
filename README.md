@@ -31,41 +31,43 @@ se invocan v-on:click="nombreDeLaFuncion" puede ser cualquier evento, mouseover,
 
 ## clases en tiempo real 
 con v-bind y el operador ternario 
-    <h1 v-bind:class="changePercent > 0 ? 'green':'red'">
+`<h1 v-bind:class="changePercent > 0 ? 'green':'red'">`
 o con objetos 
-<li 
-      v-bind:class="{ orange: p.value == price, red: p.value < price, green: p.value > price}"
-      v-for="(p,i) in pricesWithDays" 
-      v-bind:key="p.day">
-  
-  Se pueden combinar clases predeterminadas en CSS con clases dinámicas como las anteriores.
+`<li v-bind:class="{ orange: p.value == price, red: p.value < price, green: p.value > price}"
+   v-for="(p,i) in pricesWithDays" 
+   v-bind:key="p.day">`
+   
+Se pueden combinar clases predeterminadas en CSS con clases dinámicas como las anteriores.
 
 ## Estilos en tiempo real
 v-bind también se puede usar con style
 desde el HTML 
-<div id="app" v-bind:style="{background: '#' + color}">
-y desde Vue
-this.color = this.color.split("").reverse("").join("")
-siempre que este dentro del objeto definido el color
+`<div id="app" v-bind:style="{background: '#' + color}">`
 
+y desde Vue
+`this.color = this.color.split("").reverse("").join("")`
+
+siempre que este dentro del objeto definido el color
 
 ## Datos computados y watcher
 Usando templates literals y computed desde Vue podemos actualizar cadenas de contenido de forma dinámica. Se calculan en tiempo real en base a otras propiedades. 
-en Vuje
-  computed:{
+en Vue
+`computed:{
     title(){
       return `${this.name} - ${this.symbol}`
     }
-  },
+  },`
+  
 los watcher son watcher osea observadores que ejecutan cuando observan. deben tener un nombre de una propiedad definida en data 
-en data: 
-      showPrices: false,
+en data:
+`showPrices: false,`
+
 en el watch recibe dos valores como parametro, el valor nuevo y el valor antiguo
-  watch:{
+`  watch:{
     showPrices(newValue, oldValue){
       console.log(newValue, oldValue)
     }
-  },
+  },`
 
   
 
